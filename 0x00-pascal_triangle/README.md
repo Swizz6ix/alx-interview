@@ -10,12 +10,12 @@
 ```
 
 ## **for example**:
-```
+
     <sup>3</sup>C<sub>2</sub> = C(3, 2-1)*(3+1 - 2)/2
     = C(3, 1) * (2)/2
     = 3 * 2 / 2
     = 3
-```
+
 
 ## **Complexity**
 > BigO(n2) time \
