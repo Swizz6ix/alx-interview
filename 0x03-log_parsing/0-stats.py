@@ -7,7 +7,7 @@ import re
 
 def extract_input(input_line):
     """
-    
+    Extract sections of a line of an HTTP request log
     """
     fp = (
         r'\s*(?P<ip>\S+)\s',
@@ -32,7 +32,7 @@ def extract_input(input_line):
 
 def print_statistics(total_file_size, status_codes_stats):
     """
-    
+    Prints the accumulated statistics
     """
     print('File size: {:d}'.format(total_file_size), flush=True)
     for status_code in sorted(status_codes_stats.keys()):
@@ -43,7 +43,7 @@ def print_statistics(total_file_size, status_codes_stats):
 
 def update_metrics(line, total_file_size, status_codes_stats):
     """
-    
+    Updates the metrics from a given HTTP request log
     """
     line_info = extract_input(line)
     status_code = line_info.get('status_code', '0')
@@ -54,7 +54,7 @@ def update_metrics(line, total_file_size, status_codes_stats):
 
 def run():
     """
-    
+    starts the log parser
     """
     line_num = 0
     total_file_size = 0
