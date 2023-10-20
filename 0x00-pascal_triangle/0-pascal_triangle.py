@@ -15,10 +15,13 @@ def pascal_triangle(n):
         return []
 
     for row in range(n):
-        new_row = [1]
+        new_row = []
 
-        for col in range(1, row+1):
-            new_Cell = new_row[col-1] * float(row+1-col)/col
-            new_row.append(int(new_Cell))
+        for col in range(row + 1):
+            if col == 0 or col == row:
+                new_row.append(1)
+            else:
+                prevRow = result[row - 1]
+                new_row.append(prevRow[col] + prevRow[col - 1])
         result.append(new_row)
     return result
