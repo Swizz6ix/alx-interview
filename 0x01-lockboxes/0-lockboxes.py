@@ -3,6 +3,7 @@
 Lockboxes that contains many keys
 """
 
+
 def canUnlockAll(boxes):
     """Keys for the lockboxes"""
     box_len = len(boxes)
