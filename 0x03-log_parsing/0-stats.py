@@ -27,30 +27,23 @@ status_codes_stats = {
     '405': 0,
     '500': 0,
 }
-
 try:
     for line in stdin:
         if line_num != 0 and line_num % 10 == 0:
             print_logs(total_file_size, status_codes_stats)
         line_num += 1
         line_arr = line.split()
-
         try:
             total_file_size += int(line_arr[-1])
-
         except Exception:
             pass
-
         try:
             key = line_arr[-2]
             if key in status_codes_stats:
                 status_codes_stats[key] += 1
-
         except Exception:
             pass
-
     print_logs(total_file_size, status_codes_stats)
-
 except (KeyboardInterrupt, EOFError):
     print_logs(total_file_size, status_codes_stats)
     raise
