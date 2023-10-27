@@ -1,13 +1,15 @@
 #!/usr/bin/python3
 """
-
+A Script that determines if a given data set represents
+a valid UTF-8 encoding.
 """
 from typing import List
 
 
 def validUTF8(data: List[int]) -> bool:
     """
-    
+    a method that determines if a given data set
+    represents a valid UTF-8 encoding.
     """
     skip = 0
     n = len(data)
