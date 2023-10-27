@@ -22,8 +22,9 @@ def validUTF8(data: List[int]) -> bool:
         elif data[i] <= 0x7f:
             skip = 0
         elif data[i] & 0b11111000 == 0b11110000:
+            # 4-byte utf-8 character encoding
             span = 4
-            if n - 1 >= span:
+            if n -i >= span:
                 next_body = list(map(
                     lambda x: x & 0b11000000 == 0b10000000,
                     data[i + 1: i + span],
@@ -34,6 +35,7 @@ def validUTF8(data: List[int]) -> bool:
             else:
                 return False
         elif data[i] & 0b11110000 == 0b11100000:
+            # 3-byte utf-8 character encoding
             span = 3
             if n - i >= span:
                 next_body = list(map(
@@ -46,8 +48,9 @@ def validUTF8(data: List[int]) -> bool:
             else:
                 return False
         elif data[i] & 0b11100000 == 0b11000000:
+            # 2-byte utf-8 character encoding
             span = 2
-            if n - 1 >= span:
+            if n - i >= span:
                 next_body = list(map(
                     lambda x: x & 0b11000000 == 0b10000000,
                     data[i + 1: i + span],
@@ -57,6 +60,6 @@ def validUTF8(data: List[int]) -> bool:
                 skip = span - 1
             else:
                 return False
-        else: 
+        else:
             return False
     return True
