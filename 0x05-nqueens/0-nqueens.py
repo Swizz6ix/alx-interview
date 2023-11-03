@@ -9,6 +9,7 @@ solutions = []
 n = 0
 pos = None
 
+
 def get_input():
     """
     get and validate inputs
@@ -28,6 +29,7 @@ def get_input():
         sys.exit(1)
     return (n)
 
+
 def is_attacking(pos0, pos1):
     """
     check if two position are in attacking mode
@@ -35,6 +37,7 @@ def is_attacking(pos0, pos1):
     if (pos0[0] == pos1[0] or pos0[1] == pos1[1]):
         return True
     return abs(pos0[0] - pos1[0] == abs(pos0[1] - pos1[1]))
+
 
 def group_exists(group):
     """
@@ -50,6 +53,7 @@ def group_exists(group):
         if i == n:
             return True
     return False
+
 
 def build_solution(row, group):
     """
@@ -70,6 +74,7 @@ def build_solution(row, group):
             if not any(used_positions):
                 build_solution(row + 1, group)
             group.pop(len(group) - 1)
+
 
 def get_solutions():
     """
