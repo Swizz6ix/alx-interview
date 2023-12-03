@@ -6,7 +6,7 @@ request(url, (error, response, body) => {
   if (!error) {
     const characters = JSON.parse(body).characters;
     printOrderly(characters, 0);
-  };
+  }
 });
 
 const printOrderly = (characters, index) => {
@@ -18,4 +18,4 @@ const printOrderly = (characters, index) => {
       }
     }
   });
-}
+};
